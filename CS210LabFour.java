@@ -14,11 +14,14 @@ public class CS210LabFour
         {
             strArray[i] = sc.nextLine();
         }
-        String[] strArray2 = {"anne","jane","bob","jonasborther","jo"};
-        strArray = strArray2;
         strArray = strArraySelectionSort(strArray);
         strArray = AlphabeticalSort(strArray);
-        System.out.println(Arrays.toString(strArray));
+        System.out.println( "Smallest to largest:" + Arrays.toString(strArray));
+        strArray = strArraySelectionSortReverse(strArray);
+        strArray = AlphabeticalSort(strArray);
+        System.out.println("Smallest to largest: " + Arrays.toString(strArray));
+       
+
         sc.close();
     }
     
@@ -40,6 +43,27 @@ public class CS210LabFour
             temp = arr[outer];
             arr[outer] = arr[min];
             arr[min] = temp;
+        }
+        return arr;
+    }
+
+    public static String[] strArraySelectionSortReverse(String[] arr)
+    {
+        String temp = "";
+        int max;
+        for(int outer = 0; outer < arr.length; outer++)
+        {
+           max = outer;
+            for(int inner = outer + 1; inner < arr.length; inner++)
+            {
+                if(arr[inner].length() > arr[max].length())
+                {
+                    max = inner;
+                }
+            }
+            temp = arr[outer];
+            arr[outer] = arr[max];
+            arr[max] = temp;
         }
         return arr;
     }
