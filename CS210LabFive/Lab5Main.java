@@ -7,26 +7,34 @@ public class Lab5Main
     {
         Scanner sc = new Scanner(System.in);
         Stack Stack = new Stack(100);
-        Queue Queue = new Queue(100);
+        //Queue Queue = new Queue(100);
+        Stack Stack2 = new Stack(100);
+        //String[] arr = new String[100];
         String input = new String("");
         Boolean Arrived = false;
         String nextInstruction = new String("");
+        boolean palindrome = true;
         
         System.out.println("Start direction, enter \"Arrived\" when done");
+        //int count = 0;
         while(!Arrived)
         {
             input = sc.nextLine();
             if(input.equalsIgnoreCase("Arrived"))
             {
-                Queue.insert("Arrived");
                 Arrived = true;
             }
             else
             {
-                Queue.insert(input);
                 Stack.push(input);
+                Stack2.push(input);
+                //arr[count] = input;
+
             }
+            //count++;
         }
+
+        //System.out.println(Arrays.toString(arr));
         System.out.println("-------------------------------");
         System.out.println("Stack output:");
         while(!Stack.isEmpty())
@@ -58,14 +66,20 @@ public class Lab5Main
                 Stack.pop();
             }
         }
-        
-        System.out.println("-------------------------------");
-        System.out.println("Queue Output: ");
-        while(Queue.getSize() > 0)
+        System.out.println("---------------");
+        while(!Stack2.isEmpty())
         {
-            System.out.println(Queue.remove());
-
+            if(!Stack2.peek().equals(Stack2.peekBottom()))
+            {
+                palindrome = false;
+                //System.out.println(Stack2.peek() + " " + Stack2.peekBottom());
+            }
+            Stack2.pop();
+            Stack2.popBottom();
         }
+        System.out.println(palindrome);
         sc.close();
     }
+
+    
 }
