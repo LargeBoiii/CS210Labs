@@ -46,6 +46,7 @@ public class PriorityQueue
             arr[i-1] = arr[i];
         }
         itemCount--;
+        arr[itemCount] = null;
     }
 
     ///      OTHER METHODS       /// 
@@ -68,13 +69,17 @@ public class PriorityQueue
     public void printQueue()
     {
         System.out.print("{");
-        for(int i = 0; i <itemCount;i++)
+        for(int i = 0; i < arr.length ;i++)
         {
-            if(arr[i] != null)
+            if(arr[i] == null)
             {
+                System.out.print("null" + " ");
+            }
+            else{
                 System.out.print(arr[i] + " ");
             }
         }
         System.out.print("}");
+        System.out.println();
     }
 }

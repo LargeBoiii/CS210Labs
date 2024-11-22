@@ -18,25 +18,50 @@ public class Lab6Main
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter queue size");
         int size = Integer.parseInt(sc.nextLine());
-        System.out.println("Enter queue instructions, then \"Done\"");
+        System.out.println("Enter queue instructions, then \"print\"");
 
         PriorityQueue pQueue = new PriorityQueue(size);
         
         String input = sc.nextLine();
-        while(!input.equalsIgnoreCase("done"))
+        while(!input.equalsIgnoreCase("quit"))
         {
-            if(input.equalsIgnoreCase("remove"))
+            if(!pQueue.isFull())
             {
-                pQueue.remove();
+                if(input.equalsIgnoreCase("print"))
+                {
+                    pQueue.printQueue();
+                }
+                else if(input.equalsIgnoreCase("remove"))
+                {
+                    pQueue.remove();
+                }
+                else
+                {
+                    pQueue.insert(Integer.parseInt(input));
+                }
             }
             else
             {
-                pQueue.insert(Integer.parseInt(input));
+                if(input.equalsIgnoreCase("print"))
+                {
+                    pQueue.printQueue();
+                }
+                else if(input.equalsIgnoreCase("remove"))
+                {
+                    pQueue.remove();
+                }
+                else{
+                System.out.println("The queue is full, REMOVE continue input, or PRINT to see queue contents");
+                }
             }
             input = sc.nextLine();
         }
         
-        pQueue.printQueue();
+        
+        //System.out.println("The final queue is:");
+        //pQueue.printQueue();
+        
+        
         sc.close();
     }
 }
