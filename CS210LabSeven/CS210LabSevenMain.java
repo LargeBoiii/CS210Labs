@@ -8,13 +8,13 @@ public class CS210LabSevenMain
     {
         LinkedList list = new LinkedList();
         Scanner sc = new Scanner(System.in);
-        System.out.println("b".compareTo("a"));
+        //System.out.println("b".compareTo("a"));
         list.insertAlphabetically("Bunny", 26, "CSSE", 2);
-        System.out.println("we got here 1");
-        list.insertAlphabetically("Larry", 18, "ARTS", 1);
-        System.out.println("its started 2");
+        //System.out.println("we got here 1");
+        list.insertAlphabetically("aarry", 18, "ARTS", 1);
+       // System.out.println("its started 2");
         list.insertAlphabetically("Steve", 32, "ComputationalThinking", 4);
-        System.out.println("its started 3");
+        //System.out.println("its started 3");
 
         //populateList(list);
 
@@ -101,5 +101,6 @@ public class CS210LabSevenMain
             System.out.println("Continue populating list? Y/N");
             stopOrNot = sc.nextLine();
         }
+        sc.close();
     } 
 }
