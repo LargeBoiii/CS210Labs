@@ -5,12 +5,12 @@ public class CS210LabEightMain
     public static void main(String[] args)
     {
         LinkedList list = new LinkedList();
-        list.insert("6");
-        list.insert("5");
-        list.insert("4");
-        list.insert("3");
-        list.insert("2");
-        list.insert("1");
+        list.insert("this link will break the list because its not cool");
+        list.insert("this link wont because its cool unlike some other link");
+        list.insert("this link wont because its cool unlike some other link");
+        list.insert("this link wont because its cool unlike some other link");
+        list.insert("this link wont because its cool unlike some other link");
+        list.insert("this link wont because its cool unlike some other link");
         list.printList();
         System.out.println("-----------------");
         list.breakMyList();

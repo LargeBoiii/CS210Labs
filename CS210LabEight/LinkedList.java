@@ -33,7 +33,7 @@ public class LinkedList
         Link current = first;
         while(current != null)
         {
-            System.out.print(current.data + ", ");
+            System.out.println(current.data + ", ");
             current = current.next;
         }
         System.out.println();
@@ -42,13 +42,11 @@ public class LinkedList
     public void breakMyList()
     {
         Link current = first;
-        System.out.println("im fucking the list");
         while(current != null)
         {
             if(current.next == null)
             {
                 current.next = first;
-                System.out.println("lists fucked now bro");
                 break;
             }
             current = current.next;

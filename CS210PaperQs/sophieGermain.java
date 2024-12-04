@@ -10,6 +10,7 @@ public class sophieGermain
         int lowerBound = sc.nextInt();
         int upperBound = sc.nextInt();
         System.out.println(sophieGermainSum(lowerBound, upperBound));
+        sc.close();
     } 
     
     public static int sophieGermainSum(int lower, int upper)
