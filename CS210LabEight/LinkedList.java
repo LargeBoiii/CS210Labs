@@ -9,17 +9,28 @@ public class LinkedList
         first = null;
     }
 
-    public void insert(String str)
+    public void insert(int dataIn)
     {
-        Link newLink = new Link(str);
+        Link newLink = new Link(dataIn);
+        Link current = first;
         if(isEmpty())
         {
             first = newLink;
         }
         else
         {
-            newLink.next = first;
-            first = newLink;
+            while(current.data < newLink.data)
+            {
+                if(current.next != null)
+                {
+                    current = current.next;
+                }
+                else{
+                    break;
+                }
+            }
+            newLink.next = current.next;
+            current.next = newLink;
         }
     }
 
@@ -28,42 +39,82 @@ public class LinkedList
         return (first == null);
     }
 
+    public void createLoop(int loopOrigin, int loopDestination)
+    {
+        int elemCount = 1;
+        Link current = first;
+        Link loopOriginLink = null;
+        Link loopDestinationLink= null;
+
+        while(current != null)
+        {
+            if(loopOrigin == elemCount)
+            {
+                loopOriginLink = current;
+            }
+            else if(loopDestination == elemCount)
+            {
+                if(loopDestination > first.data)
+                {
+                    loopDestinationLink = current;
+                    loopDestinationLink.next = current.next;
+                }
+                loopDestinationLink = current;
+            }
+            current = current.next;
+            elemCount++;
+        }
+        loopOriginLink.next = loopDestinationLink;
+    }
+
+    public void detectLoop()
+    {
+        Link current = first;
+        Link previous = first;
+        while(current != null)
+        {
+            if(current.next != null)
+            {
+                if(current.next.data != (current.data + 1))
+                {
+                    System.out.println("The link containing " + current.data + " causes the loop");
+                    break;
+                }
+            }
+            current = current.next;
+        }
+    }
+
+    public void fixLoop()
+    {
+        Link current = first;
+        while(current != null)
+        {
+            if(current.next != null)
+            {
+                if(current.next.data != (current.data + 1))
+                {
+                    current.next = first;
+                    break;
+                }
+            }
+            current = current.next;
+        }
+    }
+
     public void printList()
     {
         Link current = first;
         while(current != null)
         {
-            System.out.println(current.data + ", ");
+            System.out.println(current.data);
             current = current.next;
-        }
-        System.out.println();
-    }
-
-    public void breakMyList()
-    {
-        Link current = first;
-        while(current != null)
-        {
-            if(current.next == null)
-            {
-                current.next = first;
-                break;
-            }
-            current = current.next;
-        }
-    }
-
-    public void printWhereListBreaks()
-    {
-        Link current = first;
-        while(current != null)
-        {
             if(current.next == first)
             {
-                System.out.println("The link containing " + current.data + " causes the loop");
+                System.out.println(current.data);
                 break;
             }
-            current = current.next;
         }
     }
+    
 }

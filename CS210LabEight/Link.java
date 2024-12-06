@@ -2,12 +2,12 @@ package CS210LabEight;
 
 public class Link 
 {
-    public String data;
+    public int data;
     public Link next;
     
-    public Link(String str)
+    public Link(int dataIn)
     {
-        data = str;
+        data = dataIn;
         next = null;
     }
 }
