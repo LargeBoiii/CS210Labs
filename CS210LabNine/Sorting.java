@@ -55,10 +55,34 @@ public class Sorting{
         if(left < right)
         {
             int mid = (left + (right - 1)) / 2;
-
-            sort(arr,left,mid);
-            sort(arr,mid+1,right);
+            if(right - left > 10)
+            {
+                sort(arr,left,mid);
+                sort(arr,mid+1,right);  
+            }
+            else
+            {
+                bubbleSort(arr,left,mid);
+                bubbleSort(arr,mid+1,right);
+            }
             merge(arr,left,mid,right);
+        }
+    }
+
+    public static void bubbleSort(int[] arr, int lowerBound, int upperBound)
+    {
+        int temp;
+        for(int i = lowerBound; i < upperBound; i++)
+        {
+            for(int j = i+1; j <= upperBound; j++)
+            {
+                if(arr[i] > arr[j])
+                {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
         }
     }
 }
