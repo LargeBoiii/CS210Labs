@@ -1,5 +1,6 @@
 package CS210LabNine;
 import java.util.*;
+import java.time.Clock;
 
 public class LabNineMain
 {
@@ -15,9 +16,12 @@ public class LabNineMain
         
         
         //      SORTING :D
+        Clock timeBefore = Clock.systemDefaultZone();
+        System.out.println(timeBefore.instant());
         Sorting.sort(arr,0,arr.length-1);
-        System.out.println(Arrays.toString(arr));
-        
+        System.out.println(timeBefore.instant()); 
+        //diff of .013 (optimised)
+        //diff of .024
 
     }
 }
